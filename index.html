@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esteaa_Please_Open</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <video id="gameVideo" muted playsinline>
+            <source src="assets/operation.mp4" type="video/mp4">
+            Your browser does not support video.
+        </video>
+
+        <audio id="bgm" loop>
+            <source src="assets/bgm.mp3" type="audio/mpeg">
+        </audio>
+
+        <div id="overlay" class="overlay hidden">
+            <h2 id="message"></h2>
+            <p id="description"></p>
+            <button id="actionButton"></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: Arial, sans-serif;
+}
+
+/* VIDEO */
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background: #000;
+}
+
+#gameVideo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
+/* OVERLAY */
+#overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: transparent;
+    pointer-events: none;
+}
+
+#overlay.hidden {
+    display: none;
+}
+
+/* START BUTTON - INVISIBLE BUT CLICKABLE */
+.game-start-button {
+    position: fixed;
+    z-index: 101;
+    border: none;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+    color: transparent;
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+/* INCISION AREA */
+.incision-overlay {
+    position: fixed;
+    z-index: 101;
+    border: none;
+    background: transparent;
+    cursor: grab;
+    pointer-events: auto;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.incision-overlay.dragging {
+    background: transparent;
+}
+
+/* GARIS PUTUS-PUTUS */
+.incision-guide {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    transform: translateX(-50%);
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 48, 48, 0.45) 0px,
+        rgba(255, 48, 48, 0.45) 10px,
+        transparent 10px,
+        transparent 18px
+    );
+
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.35));
+}
+
+/* TITIK AWAL DAN AKHIR */
+.incision-handle {
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 48, 48, 0.45);
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+.incision-handle.top {
+    top: -5px;
+}
+
+.incision-handle.bottom {
+    bottom: -5px;
+}
+
+/* HILANGKAN TULISAN */
+.incision-hint {
+    display: none;
+}
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    #gameVideo {
+        object-fit: contain;
+    }
+}/* BIRTHDAY MESSAGE */
+.birthday-card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, #28143f, #56316c, #251735);
+    animation: fadeIn 1.5s ease;
+}
+
+.birthday-card h1 {
+    display: block;
+    font-size: clamp(24px, 5vw, 42px);
+    color: #ffd6ec;
+    margin-bottom: 30px;
+}
+
+.birthday-card p {
+    max-width: 600px;
+    font-size: clamp(15px, 2.5vw, 20px);
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.birthday-card .final-wish {
+    margin-top: 25px;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: bold;
+    color: #ffd6ec;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
